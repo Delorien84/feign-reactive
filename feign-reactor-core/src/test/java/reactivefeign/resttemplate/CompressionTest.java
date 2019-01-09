@@ -14,6 +14,7 @@
 package reactivefeign.resttemplate;
 
 import reactivefeign.ReactiveFeign;
+import reactivefeign.ReactiveFeignBuilder;
 import reactivefeign.resttemplate.client.RestTemplateFakeReactiveFeign;
 import reactivefeign.resttemplate.client.RestTemplateReactiveOptions;
 import reactivefeign.testcase.IcecreamServiceApi;
@@ -24,7 +25,7 @@ import reactivefeign.testcase.IcecreamServiceApi;
 public class CompressionTest extends reactivefeign.CompressionTest {
 
   @Override
-  protected ReactiveFeign.Builder<IcecreamServiceApi> builder(boolean tryUseCompression) {
+  protected ReactiveFeignBuilder<IcecreamServiceApi> builder(boolean tryUseCompression) {
     return RestTemplateFakeReactiveFeign.<IcecreamServiceApi>builder().options(
             new RestTemplateReactiveOptions.Builder().setTryUseCompression(true).build());
   }
